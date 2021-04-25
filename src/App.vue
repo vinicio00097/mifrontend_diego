@@ -1,28 +1,44 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <div v-if="$router.currentRoute.name==null">
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <v-toolbar-title>Quejas</v-toolbar-title>
+    </v-app-bar>
+
+    <v-main>
+      <v-container>
+        <v-row>
+          <v-btn @click="$router.push({name:'comercios'})">Comercios</v-btn>
+          <v-btn @click="$router.push({name:'sucursales'})">Sucursales</v-btn>
+          <v-btn  @click="$router.push({name:'quejas'})">Quejas</v-btn>
+          <v-btn @click="$router.push({name:'estadisticas'})">Estadisticas</v-btn>
+        </v-row>
+      </v-container>
+    </v-main>
+    </div>
+    <router-view />
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    
+  },
+
+  data: () => ({
+    //
+  }),
+  created(){
+    
+  }
+};
+</script>
